@@ -31,8 +31,8 @@ class LEDframe
 	void showImg(unsigned char *img);
 	private:
 	char nrLED;
-	void startFrame(void);      // maybe private
-	void endFrame(void);		// maybe private
+	void startFrame(void);  
+	void endFrame(void);		
 };
 
 

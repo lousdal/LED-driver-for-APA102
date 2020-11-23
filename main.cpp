@@ -8,39 +8,40 @@
 #define F_CPU 16000000UL
 
 #include <util/delay.h>
-#include "FlagImg.h"
+#include "Img.h"
 #include "LousdalLED.h"
 
 int main(void)
 {
-	LEDframe LED = LEDframe();
+	_delay_ms(100);
+	LEDframe LED = LEDframe();		// creates an instance of LEDframe
 	
-	LED.width = 8;
-	LED.height = 8;
+	LED.width = 8;		// setting the with of the panel
+	LED.height = 8;		// setting the height of the panel
 	
-	LED.brightness = 1;			// from 1 to 31
-	LED.initializeFrame();
-	int delay_speed = 100;
-	
+	LED.brightness = 1;			// can set brightness from 1 to 31
+	LED.initializeFrame();			// initializes the frame
+	_delay_ms(100);
+	//int delay_speed = 100;
     while (1) 
     {
-		LED.showImg(&myIMG[0][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[1][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[2][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[3][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[4][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[5][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[6][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[7][0]);
-		_delay_ms(delay_speed);
-		LED.showImg(&myIMG[8][0]);
-		_delay_ms(delay_speed);
+		LED.showImg(&myIMG[0][0]);		// shows the image with the given address in the array
+		_delay_ms(1000);
+// 		LED.showImg(&myIMG[1][0]);
+// 		_delay_ms(1000);
+// 		LED.showImg(&myIMG[2][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[3][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[4][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[5][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[6][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[7][0]);
+// 		_delay_ms(delay_speed);
+// 		LED.showImg(&myIMG[8][0]);
+// 		_delay_ms(delay_speed);
     }
 }

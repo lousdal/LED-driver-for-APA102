@@ -11,20 +11,20 @@ void LEDframe::initializeFrame(void)
 {
 	/* Set MOSI and SCK output, all others input */
 	DDR_SPI = (1<<DD_MOSI)|(1<<DD_SCK);
-	/* Enable SPI, Master, set clock rate fck/16 (IS THE CLOCK RATE IMPORTANT?!?!)*/
-	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+	/* Enable SPI, Master, set clock rate fck/16 */
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPI2X);
 	nrLED = height*width;
 }
 
-void LEDframe::startFrame(void)
-{			
+void LEDframe::startFrame(void)		/// in datasheet startframe is started by sending 32 bits of 0
+{	
 	transmitByte(0);   // transmit byte to slave
 	transmitByte(0);
 	transmitByte(0);
 	transmitByte(0);
 }
 
-void LEDframe::endFrame(void)
+void LEDframe::endFrame(void)		/// in datasheet startframe is started by sending 32 bits of 0
 {
 	transmitByte(255);	// transmit byte to slave
 	transmitByte(255);
@@ -54,10 +54,10 @@ void LEDframe::transmitRGB(unsigned char R, unsigned char G, unsigned char B)
 void LEDframe::showImg(unsigned char *img)
 {
 	startFrame();
-	unsigned char *imgpointer = img;
+	//unsigned char *imgpointer = img;
 	for (int i = 0; i < nrLED; i++)
 	{
-		transmitRGB(*imgpointer++, *imgpointer++, *imgpointer++);
+		transmitRGB(*img++, *img++, *img++);
 	}
 	endFrame();
 }
