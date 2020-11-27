@@ -14,34 +14,32 @@
 int main(void)
 {
 	_delay_ms(100);
-	LEDframe LED = LEDframe();		// creates an instance of LEDframe
+	LEDframe LED = LEDframe();	// creates an instance of LEDframe
 	
-	LED.width = 8;		// setting the with of the panel
-	LED.height = 8;		// setting the height of the panel
+	LED.width = 8;	// setting the with of the panel
+	LED.height = 8;	// setting the height of the panel
 	
-	LED.brightness = 1;			// can set brightness from 1 to 31
-	LED.initializeFrame();			// initializes the frame
+	LED.brightness = 1;	// can set brightness from 1 to 31
+	LED.initializeFrame();	// initializes the frame
 	_delay_ms(100);
-	//int delay_speed = 100;
+	
     while (1) 
     {
-		LED.showImg(&myIMG[0][0]);		// shows the image with the given address in the array
+		LED.showImg(&myIMG[0][0]); // shows the image with the given address in the array
 		_delay_ms(1000);
-// 		LED.showImg(&myIMG[1][0]);
-// 		_delay_ms(1000);
-// 		LED.showImg(&myIMG[2][0]);
-// 		_delay_ms(delay_speed);
-// 		LED.showImg(&myIMG[3][0]);
-// 		_delay_ms(delay_speed);
+		LED.showImg(&myIMG[3][0]);
+		_delay_ms(1000);	
+ 		LED.showImg(&myIMG[1][0]);
+		_delay_ms(1000);
 // 		LED.showImg(&myIMG[4][0]);
-// 		_delay_ms(delay_speed);
+// 		_delay_ms(1000);
 // 		LED.showImg(&myIMG[5][0]);
-// 		_delay_ms(delay_speed);
+// 		_delay_ms(1000);
 // 		LED.showImg(&myIMG[6][0]);
-// 		_delay_ms(delay_speed);
+// 		_delay_ms(1000);
 // 		LED.showImg(&myIMG[7][0]);
-// 		_delay_ms(delay_speed);
+// 		_delay_ms(1000);
 // 		LED.showImg(&myIMG[8][0]);
-// 		_delay_ms(delay_speed);
-    }
+// 		_delay_ms(1000);
+	}
 }
